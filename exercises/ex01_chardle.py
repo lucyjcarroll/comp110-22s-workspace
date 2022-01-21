@@ -1,40 +1,18 @@
 """EX01 - Chardle - A cute step toward Wordle."""
 
-__author__ = "730320310" 
+__author__ = "730320310"
 
-word: str = input("Enter a 5-character word: hello")
-character: str = input("Enter a single character: e")
-print("Searching for e in hello")
+word_choice: str = input("Enter a 5-character word: ")
+character_choice: str = input("Enter a single character: ")
+print("Searching for " + character_choice + " in " + word_choice)
 
-if character == "hello"[1]:
-    print("e found at index 1")
-else:
-    character == "hello"[0]
-    character == "hello"[2]
-    character == "hello"[3]
-    character == "hello"[4]
-    print("letter not found at index 1")
-
-word: str = input("Enter a 5 character word: ")
-character: str = input("Enter a single character: ")
-print("Searching for e in heels")
-
-if character == "heels"[1]:  
-    print("e found at index 1")
-    if character == "heels"[2]: 
-        print("e found at index 2")
-else: 
-    character != "heels"[1]
-    print("letter not found at index 1")
-    character != "heels"[2]
-    print("letter not found at index 2")
-    
-word: str = input("Enter a 5-character word: ")
-character: str = input("Enter a single character: ")
-print("Searching for s in heels")
-
-if character == "heels"[4]:
-    print("s found at index 4")
-else: 
-    character != "heels"[4]
-    print("letter not found at index 4")
+if character_choice == word_choice[1]:
+    print(character_choice + " found at index 1")
+if character_choice == word_choice[0]:
+    print(character_choice + " found at index 0")
+if character_choice == word_choice[2]:
+    print(character_choice + " found at index 2")
+if character_choice == word_choice[3]:
+    print(character_choice + " found at index 3")
+if character_choice == word_choice[4]:
+    print(character_choice + " found at index 4")
