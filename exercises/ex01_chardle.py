@@ -14,8 +14,6 @@ else:
     character == "hello"[4]
     print("letter not found at index 1")
 
-
-
 word: str = input("Enter a 5 character word: ")
 character: str = input("Enter a single character: ")
 print("Searching for e in heels")
@@ -30,13 +28,11 @@ else:
     character != "heels"[2]
     print("letter not found at index 2")
     
-
-
 word: str = input("Enter a 5-character word: ")
 character: str = input("Enter a single character: ")
 print("Searching for s in heels")
 
-if  character == "heels"[4]:
+if character == "heels"[4]:
     print("s found at index 4")
 else: 
     character != "heels"[4]
