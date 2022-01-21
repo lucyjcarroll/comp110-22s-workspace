@@ -17,12 +17,13 @@ if character_choice == word_choice[3]:
 if character_choice == word_choice[4]:
     print(character_choice + " found at index 4") 
 
-count_char = word_choice.count(character_choice)
+char_count = word_choice.count(character_choice)
 
-if count_char == 0:
+if char_count == 0:
     print("No instances of " + character_choice + " found in " + word_choice)
-if count_char == 1:
-    print("1 instance of " + character_choice + " found in " + word_choice)
-if count_char == 2:
-    print("2 instances of " + character_choice + " found in " + word_choice)
-    
+else:
+    if char_count == 1:
+        print("1 instance of " + character_choice + " found in " + word_choice)
+    if char_count >= 2:
+        print(char_count, " instances of " + character_choice + " found in  " + word_choice)
+     
