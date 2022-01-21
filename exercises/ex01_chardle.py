@@ -1,8 +1,9 @@
 """EX01 - Chardle - A cute step toward Wordle."""
+
 __author__ = "730320310" 
 
-word: str = input("Enter a 5-character word: ")
-character: str = input("Enter a single character: ")
+word: str = input("Enter a 5-character word: hello")
+character: str = input("Enter a single character: e")
 print("Searching for e in hello")
 
 if character == "hello"[1]:
