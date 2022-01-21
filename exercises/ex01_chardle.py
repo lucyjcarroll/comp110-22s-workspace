@@ -25,5 +25,5 @@ else:
     if char_count == 1:
         print("1 instance of " + character_choice + " found in " + word_choice)
     if char_count >= 2:
-        print(char_count, " instances of " + character_choice + " found in  " + word_choice)
+        print(char_count, " instances of " + character_choice + " found in " + word_choice)
      
