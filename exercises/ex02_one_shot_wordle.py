@@ -7,13 +7,8 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
-firstidx: str = secret_word[0]
-secondidx: str = secret_word[1]
-thirdidx: str = secret_word[2]
-fourthidx: str = secret_word[3]
-fifthidx: str = secret_word[4]
-sixthidx: str = secret_word[5]
-idx = str = [secret_word]
+
+idx1 = str = [secret_word]
 
 i: int = len(secret_word)  
 while i < len(guess):
@@ -30,7 +25,7 @@ while i == len(guess) and guess != secret_word:
     while idx == [guess]:
         print(GREEN_BOX)
         idx != [guess]
-        
+
     print("Not quite. Play again soon!")
     i = i + 1
 
