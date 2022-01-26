@@ -7,8 +7,7 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
-
-idx1 = str = [secret_word]
+idx = str = [secret_word]
 
 i: int = len(secret_word)  
 while i < len(guess):
