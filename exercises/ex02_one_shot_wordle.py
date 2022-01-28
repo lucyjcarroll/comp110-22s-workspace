@@ -12,22 +12,21 @@ emoji_str = ""
 
 
 i: int = len(guess)  # loop for correct length, wrong guess 
+
 while i != len(secret_word):
     wrong_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
     if len(wrong_guess) == len(secret_word) and wrong_guess != secret_word:
-        print("Not quite. Play again soon!")
         i = len(secret_word)
     else:
         if wrong_guess == secret_word:
-            print(f"{GREEN_BOX}" * len(secret_word))
             print("Woo! You got it!")
-        exit()
-    
-i: int = len(guess)  # loop for correct length, wrong guess 
+            exit()
+            
+# loop for correct length, wrong guess 
 while i == len(secret_word) and guess != secret_word:
     print("Not quite. Play again soon!")
-    i = i + 1 
+    i = i + 1
 while i == len(secret_word) and guess == secret_word:
     print(f"{GREEN_BOX}" * len(secret_word))  
     print("Woo! You got it!")
-    guess = "hello"  # this will exit loop because guess is not 6 letters  
+    i = i + 1
