@@ -17,10 +17,6 @@ while i != len(secret_word):
     wrong_guess = input(f"That was not {len(secret_word)} letters! Try again: ")
     if len(wrong_guess) == len(secret_word) and wrong_guess != secret_word:
         i = len(secret_word)
-    else:
-        if wrong_guess == secret_word:
-            print("Woo! You got it!")
-            exit()
             
 # loop for correct length, wrong guess 
 while i == len(secret_word) and guess != secret_word:
