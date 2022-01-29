@@ -7,20 +7,26 @@ WHITE_BOX: str = "\U00002B1C"
 GREEN_BOX: str = "\U0001F7E9"
 YELLOW_BOX: str = "\U0001F7E8"
 
+guess_len: int = len(guess)
 idx = len(secret) - len(guess)
 emoji = ""
-
+used_char: bool = False 
+alt_idx = 0 
 
 while idx < len(secret) and len(secret) == len(guess):    # emoji loop 
     if guess[idx] == secret[idx]:
         emoji = emoji + f"{GREEN_BOX}"
-        idx = idx + 1
+        idx = idx + 1 
     elif guess[idx] != secret[idx]:
-        emoji = emoji + f"{WHITE_BOX}"
+        while used_char is not True and idx < len(secret):
+            if secret[alt_idx] == guess[idx]:
+                used_char = True 
+            else:
+                alt_idx = alt_idx + 1 
+        emoji = emoji + f"{YELLOW_BOX}" 
         idx = idx + 1
 print(emoji)
 
-guess_len: int = len(guess)  
 while guess_len != len(secret): 
     guess_again = input(f"That was not {len(secret)} letters! Try again: ")
     if len(guess_again) == len(secret) and guess_again != secret:
