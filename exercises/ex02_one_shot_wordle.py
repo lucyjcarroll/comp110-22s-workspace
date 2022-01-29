@@ -22,13 +22,14 @@ while idx < len(secret) and len(secret) == len(guess):    # emoji loop
         idx = idx + 1 
         while used_char is not True and idx < len(secret):
             if secret[alt_idx] == guess[idx]:
-                used_char = True 
                 alt_idx = alt_idx + 1
+                used_char = True 
+                emoji = emoji + f"{YELLOW_BOX}"
             else:
+                alt_idx = alt_idx + 1 
+            if used_char is True and idx < len(secret):
                 emoji = emoji + f"{WHITE_BOX}"
                 alt_idx = alt_idx + 1 
-        if used_char is True and idx < len(secret):
-            emoji = emoji + f"{YELLOW_BOX}"
 print(emoji)
 
 while guess_len != len(secret): 
