@@ -20,8 +20,8 @@ def contains_char(word: str, char: str) -> bool:
 
 
 def emojified(guess: str, secret: str) -> str: 
-    """Function to print emojis(white, yellow, green boxes)
-     to signal if characters match/do not match/are contained in the word."""
+    """Function to print emojis(white, yellow, green boxes)to 
+    signal if characters match/do not match/are contained in the word."""
     assert len(guess) == len(secret)
     idx: int = 0
     emoji: str = ""
@@ -36,3 +36,17 @@ def emojified(guess: str, secret: str) -> str:
             emoji = emoji + f"{WHITE_BOX}"
             idx = idx + 1
     return emoji 
+
+
+def input_guess(exp_length: int) -> str:
+    """Function for prompting a guess of certain length
+     and continues until expected word length is reached."""
+
+    guess: str = input(f"Enter a {exp_length} character word: ")
+    if len(guess) == exp_length:
+        return guess 
+    while len(guess) != input_guess:
+        input(f"That wasn't {exp_length} chars! Try again: ")
+        if len(guess) == input_guess:
+            return guess
+    
