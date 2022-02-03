@@ -45,8 +45,9 @@ def input_guess(exp_length: int) -> str:
     guess: str = input(f"Enter a {exp_length} character word: ")
     if len(guess) == exp_length:
         return guess 
-    while len(guess) != input_guess:
+    while len(guess) != exp_length:
         input(f"That wasn't {exp_length} chars! Try again: ")
-        if len(guess) == input_guess:
-            return guess
+        if len(guess) == exp_length:
+            exp_length = len(guess) 
+    return guess
     
