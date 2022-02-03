@@ -43,11 +43,36 @@ def input_guess(exp_length: int) -> str:
      and continues until expected word length is reached."""
 
     guess: str = input(f"Enter a {exp_length} character word: ")
-    if len(guess) == exp_length:
-        return guess 
     while len(guess) != exp_length:
-        input(f"That wasn't {exp_length} chars! Try again: ")
-        if len(guess) == exp_length:
-            exp_length = exp_length + 1
-    return guess
+        guess_again = input(f"That wasn't {exp_length} chars! Try again: ")
+        if len(guess_again) == exp_length:
+            return guess_again
+        else:
+            len(guess) == exp_length
+    return guess 
+
+
+def main() -> None:
+    """Entrypoint of the program/main game loop."""
+
+    secret: str = "codes"
+    turn: int = 1 
     
+    while turn <= 6:
+        print(f"=== Turn {turn}/6 ===")
+        guess = input_guess(len(secret))
+        if secret == guess:
+            print(emojified(guess, secret))
+            print(f"You won in {turn}/6 turns!")
+            turn = 7
+        elif turn == 6 and secret != guess:
+            print(emojified(guess, secret))
+            print("X/6 - Sorry, try again tomorrow!")
+            turn = 7
+        elif secret != guess:
+            print(emojified(guess, secret))
+            turn = turn + 1
+
+
+if __name__ == "__main__":
+    main()
