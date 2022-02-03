@@ -48,6 +48,6 @@ def input_guess(exp_length: int) -> str:
     while len(guess) != exp_length:
         input(f"That wasn't {exp_length} chars! Try again: ")
         if len(guess) == exp_length:
-            exp_length = len(guess) 
+            exp_length = exp_length + 1
     return guess
     
