@@ -1,7 +1,7 @@
 """A Beautiful Day in Nature."""
 __author__ = "730320310"
 
-from turtle import Turtle, colormode, done, end_fill
+from turtle import Turtle, colormode, done
 colormode(255)
 
 
