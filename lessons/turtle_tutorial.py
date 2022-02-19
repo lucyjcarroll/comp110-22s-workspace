@@ -36,4 +36,3 @@ while i < 9:
     bob.left(122)
     i = i + 1
 done()
-
