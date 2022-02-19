@@ -20,14 +20,17 @@ def concat(a_list: list[int], another_list: list[int]):
     merged_list: list[int] = []
     i: int = 0
     while i < len(a_list):
-        merged_list.append(a_list[i])
+        item: int = a_list[i]
+        merged_list.append(item)
+        i += 1
+    i: int = 0
     while i < len(another_list):
-        merged_list.append(another_list[i])
+        item: int = another_list[i]
+        merged_list.append(item)
+        i += 1
     return merged_list
 
 
-def sub(a_list: list[int], start_idx: int, end_idx: int):
+def sub(list: list[int], start_idx: int, end_idx: int):
     """Function to return a list with only numbers between the start and end index."""
-    i: int = 0
-    if len(a_list) == 0 or start_idx > len(a_list) or end_idx <= 0: 
-        a_list
+   
