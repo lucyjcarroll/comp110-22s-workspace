@@ -4,15 +4,17 @@ from exercises.ex05.utils import only_evens
 
 
 def test_only_evens_mix() -> None:
-    xs: list[int] = [3, 1, 2]
-    assert only_evens(xs) == [2]
+    numbers: list[int] = [3, 1, 2]
+    assert only_evens(numbers) == [2]
 
 
 def test_only_evens_odds() -> None:
-    xs: list[int] = [1, 5, 3]
-    assert only_evens(xs) == []
+    numbers: list[int] = [1, 5, 3]
+    assert only_evens(numbers) == []
 
 
 def test_only_evens_even() -> None:
-    xs: list[int] = [4, 4, 4]
-    assert only_evens(xs) == [4, 4, 4]
+    numbers: list[int] = [4, 4, 4]
+    assert only_evens(numbers) == [4, 4, 4]
+
+def test_sub_
