@@ -2,15 +2,15 @@
 __author__ = "730320310"
 
 
-def only_evens(xs: list[int]):
+def only_evens(numbers: list[int]):
     """Function to return only even numbers in a list."""
     i: int = 0
     returned_list = []
-    while i < len(xs):
-        if xs[i] % 2 == 0:
-            returned_list.append(xs[i])
+    while i < len(numbers):
+        if numbers[i] % 2 == 0:
+            returned_list.append(numbers[i])
             i += 1
-        elif xs[i] % 2 != 0:
+        elif numbers[i] % 2 != 0:
             i += 1
     return returned_list
             
@@ -18,9 +18,11 @@ def only_evens(xs: list[int]):
 def sub(a_list: list[int], start_idx: int, end_idx: int):
     """Function to return a list with only numbers between the start and end index."""
     i: int = 0
-    while i < end_idx and i > start_idx:
-        return a_list[i]
-        i += 1
+    resulting_list = []
+    if len(a_list) == 0 or start_idx > len(a_list) or end_idx <= 0:
+        return resulting_list
+
+    return resulting_list
 
 
 def concat(a_list: list[int], another_list: list[int]) -> str:
