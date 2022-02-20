@@ -1,6 +1,6 @@
 """Exercise 05: Practicing testing on list utility functions."""
 __author__ = "730320310"
-from exercises.ex05.utils import only_evens, concat
+from exercises.ex05.utils import only_evens, concat, sub
 
 
 def test_only_evens_mix() -> None:
@@ -44,11 +44,17 @@ def test_concat_1_empty_list() -> None:
 
 def test_sub_empty() -> None:
     """Unit test for an empty list."""
+    a_list: list[int] = []
+    assert sub(a_list, 2, 3) == []
 
 
 def test_sub_test_1() -> None:
-    """Unit test for."""
+    """Unit test for end index out of list range."""
+    tester_list: list[int] = [5, 6, 7, 8, 9]
+    assert sub(tester_list, 0, 10) == [5, 6, 7, 8]
 
 
 def test_sub_test_2() -> None: 
-    """Unit test for."""
+    """Unit test for negative start index."""
+    a_list: list[int] = [0, 1, 2, 3, 4, 5]
+    assert sub(a_list, -1, 4) == [0, 1, 2, 3]
