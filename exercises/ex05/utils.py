@@ -31,6 +31,17 @@ def concat(a_list: list[int], another_list: list[int]):
     return merged_list
 
 
-def sub(list: list[int], start_idx: int, end_idx: int):
+def sub(a_list: list[int], start_idx: int, end_idx: int):
     """Function to return a list with only numbers between the start and end index."""
-   
+    new_list: list[int] = []
+    i: int = 0
+    if start_idx < 0:
+        start_idx = 0
+    if end_idx > len(a_list):
+        end_idx = len(a_list) - 1
+    if len(a_list) == 0 or start_idx > len(a_list) or end_idx <= 0:
+        return new_list
+    while i >= start_idx and i < end_idx:
+        new_list.append(a_list[i])  
+        i += 1
+    return new_list
