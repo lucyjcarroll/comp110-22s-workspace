@@ -51,10 +51,16 @@ def test_sub_empty() -> None:
 def test_sub_test_1() -> None:
     """Unit test for end index out of list range."""
     tester_list: list[int] = [5, 6, 7, 8, 9]
-    assert sub(tester_list, 0, 10) == [5, 6, 7, 8]
+    assert sub(tester_list, 0, 10) == [5, 6, 7, 8, 9]
 
 
 def test_sub_test_2() -> None: 
     """Unit test for negative start index."""
     a_list: list[int] = [0, 1, 2, 3, 4, 5]
     assert sub(a_list, -1, 4) == [0, 1, 2, 3]
+
+
+def test_sub_test_3() -> None:
+    """Unite test for start and end indexes inside of list (no edge cases."""
+    a_list: list[int] = [1, 2, 3, 4]
+    assert sub(a_list, 1, 3) == [2, 3]
