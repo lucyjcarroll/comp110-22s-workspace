@@ -2,7 +2,7 @@
 __author__ = "730320310"
 
 from exercises.ex06.dictionary import invert, favorite_color
-import pytest
+
 
 def test_invert_use_1() -> None:
     """Use case 1 for invert function."""
