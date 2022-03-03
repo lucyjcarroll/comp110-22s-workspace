@@ -26,5 +26,4 @@ def favorite_color(a_dict: dict[str, str]) -> str:
 def count(values: list[str]) -> dict[str, int]:
     """Function to return a dictionary of counts of each of the items in input list."""
     result: dict[str, int]
-    i: int = 0
-    for value in values:
+    
