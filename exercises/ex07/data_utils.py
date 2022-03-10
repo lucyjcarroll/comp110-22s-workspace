@@ -44,19 +44,17 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
     # column reps key in the following loop
     for column in first_row:
         result[column] = column_values(row_table, column)
-
     return result
 
 
 def head(table: dict[str, list[str]], N: int) -> dict[str, list[str]]:
+    """Produces a column-based table with the first N rows of data for each column."""
     result: dict[str, str] = {}
-    
-    for column in table: 
+    first_row: dict[str, list[str]] = table[0]
+    for column in first_row: 
         first_values: list[str] = []
-        for column in table[N]:
-            first_values.append(column[N])
+        for item in column:
+            first_values.append(item)
+            first_values 
             
-    return result 
-
-
     return result 
