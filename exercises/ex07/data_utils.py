@@ -52,15 +52,15 @@ def head(table: dict[str, list[str]], N: int) -> dict[str, list[str]]:
     for column in table: 
         first_values: list[str] = []
         i: int = 0
+        if N >= len(table[column]):
+            first_values = table[column]
         while i < N:
             first_values.append(table[column][i])
             i += 1
         result[column] = first_values
-    if N >= len(table): 
-        return table
     return result 
-
-
+      
+    
 def select(table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
     """Produces a new column-based table with only specific columns from the original table."""
     result: dict[str, list[str]] = {}
@@ -76,7 +76,10 @@ def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict
         result[column] = table_1[column]
     for column in table_2:
         if column in result:
-            table_2[column].append(column)
+            i: int = 0
+            while i < len(table_2[column]):
+                result[column].append(table_2[column][i])
+                i = i + 1
         else:
             result[column] = table_2[column]
     return result
