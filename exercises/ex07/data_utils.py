@@ -4,7 +4,6 @@ __author__ = "730320310"
 
 # Define your functions below
 from csv import DictReader
-from distutils.command.build_scripts import first_line_re
 
 
 def read_csv_rows(file_name: str) -> list[dict[str, str]]: 
@@ -49,12 +48,46 @@ def columnar(row_table: list[dict[str, str]]) -> dict[str, list[str]]:
 
 def head(table: dict[str, list[str]], N: int) -> dict[str, list[str]]:
     """Produces a column-based table with the first N rows of data for each column."""
-    result: dict[str, str] = {}
-    first_row: dict[str, list[str]] = table[0]
-    for column in first_row: 
+    result: dict[str, list[str]] = {}
+    for column in table: 
         first_values: list[str] = []
-        for item in column:
-            first_values.append(item)
-            first_values 
-            
+        i: int = 0
+        while i < N:
+            first_values.append(table[column][i])
+            i += 1
+        result[column] = first_values
+    if N >= len(table): 
+        return table
     return result 
+
+
+def select(table: dict[str, list[str]], names: list[str]) -> dict[str, list[str]]:
+    """Produces a new column-based table with only specific columns from the original table."""
+    result: dict[str, list[str]] = {}
+    for column in names:
+        result[column] = table[column]
+    return result
+
+
+def concat(table_1: dict[str, list[str]], table_2: dict[str, list[str]]) -> dict[str, list[str]]:
+    """Produces a new column-vased table that combines two column-based tables."""
+    result: dict[str, list[str]] = {}
+    for column in table_1:
+        result[column] = table_1[column]
+    for column in table_2:
+        if column in result:
+            table_2[column].append(column)
+        else:
+            result[column] = table_2[column]
+    return result
+
+
+def count(values: list[str]) -> dict[str, int]:
+    """Produces a dictionary of with counts (frequency) of each unique item in a list."""
+    result: dict[str, int] = {}
+    for value in values:
+        if value in result:
+            result[value] += 1
+        else:
+            result[value] = 1
+    return result
