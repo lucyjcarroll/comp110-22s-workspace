@@ -106,8 +106,16 @@ class Simpy:
         """Produces ability to return a list only including masked (filtered) items."""
         if isinstance(rhs, int):
             return self.values[rhs]
-        mask: list[bool] = []
+        new: Simpy = Simpy([])
         if isinstance(rhs, list[bool]):
+            for item in range(len(self.values)):
+                if self.values[item] is True:
+                    new.values.append(self.values[item])
+        return new 
+                    
+    
+
+
             
 
 
