@@ -43,25 +43,77 @@ class Simpy:
         return sum(self.values)
 
     def __add__(self, rhs: Union[float, Simpy]) -> Simpy:
-        """Creates ability to use + in conjunction with  Simpy objects and floats."""
-        new: Simpy 
+        """Creates ability to use + in conjunction with Simpy objects and floats."""
+        new: Simpy = Simpy([]) 
         if isinstance(rhs, Simpy):
-            len(self.values) == len(Simpy.values)
-            for item in self.values:
-                new = self.values(item) + Simpy.values(item)
+            assert len(self.values) == len(rhs.values)
+            for item in range(len(rhs.values)):
+                new.values.append(self.values[item] + rhs.values[item])
         if isinstance(rhs, float):
+            for item in range(len(self.values)):
+                new.values.append(self.values[item] + rhs)
+        return new
+
+    def __pow__(self, rhs: Union[float, Simpy]) -> Simpy:
+        """Creates ability to exponentiate 2 Simpy objects or a Simpy object and a float."""
+        new: Simpy = Simpy([]) 
+        if isinstance(rhs, Simpy):
+            assert len(self.values) == len(rhs.values)
+            for item in range(len(rhs.values)):
+                new.values.append(self.values[item] ** rhs.values[item])
+        if isinstance(rhs, float):
+            for item in range(len(self.values)):
+                new.values.append(self.values[item] ** rhs)
+        return new
+
+    def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Creates a list of True or False assertions based on whether or not Simpy values or float values match the original Simpy values. """
+        mask: list[bool] = []
+        if isinstance(rhs, Simpy):
+            assert len(self.values) == len(rhs.values)
+            for i in range(len(rhs.values)):
+                if self.values[i] == rhs.values[i]:
+                    mask.append(True)
+                else:
+                    mask.append(False)
+        if isinstance(rhs, float):
+            for item in range(len(self.values)):
+                if self.values[item] == rhs:
+                    mask.append(True)
+                else:
+                    mask.append(False)
+        return mask
+
+    def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        """Creates a list of True or False assertions based on whether Simpy values or float values are greater than the original Simpy values."""
+        mask: list[bool] = []
+        if isinstance(rhs, Simpy):
+            assert len(self.values) == len(rhs.values)
+            for i in range(len(rhs.values)):
+                if self.values[i] > rhs.values[i]:
+                    mask.append(True)
+                else:
+                    mask.append(False)
+        if isinstance(rhs, float):
+            for item in range(len(self.values)):
+                if self.values[item] > rhs:
+                    mask.append(True)
+                else:
+                    mask.append(False)
+        return mask
+
+    def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
+        """Produces ability to return a list only including masked (filtered) items."""
+        if isinstance(rhs, int):
+            return self.values[rhs]
+        mask: list[bool] = []
+        if isinstance(rhs, list[bool]):
             
 
-    # def __pow__(self, rhs: Union[float, Simpy]) -> Simpy:
 
-    # def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
 
-    # def __gt__(self, rhs: Union[float, Simpy]) -> list[bool]:
+        
 
-    # def __getitem__(self, rhs: int) -> float:
-    #     value: float
-    #     self.values[value]
-    #     return value
 
 
 
