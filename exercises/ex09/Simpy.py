@@ -103,11 +103,14 @@ class Simpy:
 
     def __getitem__(self, rhs: Union[int, list[bool]]) -> Union[float, Simpy]:
         """Produces ability to return a list only including masked (filtered) items."""
+        new: Simpy = Simpy([])
         if isinstance(rhs, int):
             return self.values[rhs]
-        new: Simpy = ([])
-        if isinstance(rhs, Simpy):
-            for item in range(len(rhs.values)):
-                if self.values[item] is True:
-                    new.values.append(self.values[item])
+        else:
+            assert len(rhs) == len(self.values)
+            i: int = 0
+            while i < len(rhs):
+                if rhs[i]:
+                    new.values.append(self.values[i])
+                i = i + 1
         return new
