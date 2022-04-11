@@ -1,7 +1,6 @@
 """Utility class for numerical operations."""
 
 from __future__ import annotations
-from re import L
 from typing import Union
 
 __author__ = "730320310"
@@ -67,7 +66,7 @@ class Simpy:
         return new
 
     def __eq__(self, rhs: Union[float, Simpy]) -> list[bool]:
-        """Creates a list of True or False assertions based on whether or not Simpy values or float values match the original Simpy values. """
+        """Creates a list of True or False assertions based on whether or not Simpy values or float values match the original Simpy values."""
         mask: list[bool] = []
         if isinstance(rhs, Simpy):
             assert len(self.values) == len(rhs.values)
@@ -106,22 +105,9 @@ class Simpy:
         """Produces ability to return a list only including masked (filtered) items."""
         if isinstance(rhs, int):
             return self.values[rhs]
-        new: Simpy = Simpy([])
-        if isinstance(rhs, list[bool]):
-            for item in range(len(self.values)):
+        new: Simpy = ([])
+        if isinstance(rhs, Simpy):
+            for item in range(len(rhs.values)):
                 if self.values[item] is True:
                     new.values.append(self.values[item])
-        return new 
-                    
-    
-
-
-            
-
-
-
-        
-
-
-
-
+        return new
