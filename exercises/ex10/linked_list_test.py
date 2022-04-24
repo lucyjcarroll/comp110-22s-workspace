@@ -63,7 +63,7 @@ def test_linkify_non_empty() -> None:
 
 def test_scale_empty() -> None:
     """Scale of an empty linked list should return None."""
-    linked_list = Node()
+    linked_list = 
     assert scale(linked_list, 0) is None
 
 
