@@ -1,6 +1,6 @@
 """Utility functions for working with linked lists."""
 
-from  __future__ import annotations
+from __future__ import annotations
 from typing import Optional
 
 __author__ = "730320310"
@@ -8,10 +8,10 @@ __author__ = "730320310"
 
 class Node:
     """An item in a singly-linked list."""
-    data:int
+    data: int
     next: Optional[Node]
 
-    def __init__(self, data:  int, next: Optional[Node]):
+    def __init__(self, data: int, next: Optional[Node]):
         """Construct a single linked list. Use None for 2nd argument if tail."""
         self.data = data
         self.next = next
@@ -38,5 +38,40 @@ def last(head: Optional[Node]) -> int:
     """Returns the last value of a Linked List, or raises a ValueError if the list is empty."""
     if head is None:
         raise ValueError("last cannot be called with None")
+    elif head.next is None:
+        return head.data
     else:
+        return last(head.next)
+
+
+def value_at(head: Optional[Node], index: int) -> int:
+    """Return data of the Node stored at the given index."""
+    if head is None:
+        raise IndexError("Index is out of bounds on the list.")
+    elif index == 0:
+        return head.data
+    else: 
+        return value_at(head.next, index - 1)
+
+
+def max(head: Optional[Node]) -> int:
+    if head is None:
+        raise ValueError("Cannot call max with None")
+    maximum = head.data
+    if head.next is None:
+        return maximum
+    else: 
+        if head.data > maximum:
+            maximum = head.data
+        return max(head.next)
+       
+
+def linkify(items: list[int]) -> Optional[Node]:
+    if len(items) == 0:
         return None
+
+
+def scale(head: Optional[Node], facotr: int) -> Optional[Node]: 
+    if head is None:
+        return None
+    
