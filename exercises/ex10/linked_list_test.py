@@ -52,19 +52,17 @@ def test_max_non_empty2() -> None:
 
 def test_linkify_empty() -> None:
     """Linkify of empty list should return None."""
-    list = []
-    assert linkify(list) is None
+    list = [1, 2]
+    assert linkify(list) == Node(1, Node(2, None))
 
 
 def test_linkify_non_empty() -> None:
     """Linkify of a list should return Linked list of nodes with the same values."""
-    list = [1, 2, 3]
 
 
 def test_scale_empty() -> None:
     """Scale of an empty linked list should return None."""
-    linked_list = 
-    assert scale(linked_list, 0) is None
+    list = None
 
 
 def test_scale_use() -> None:

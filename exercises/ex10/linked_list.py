@@ -55,23 +55,32 @@ def value_at(head: Optional[Node], index: int) -> int:
 
 
 def max(head: Optional[Node]) -> int:
+    """Returns value of node with max value."""
     if head is None:
         raise ValueError("Cannot call max with None")
-    maximum = head.data
     if head.next is None:
-        return maximum
+        return head.data
     else: 
+        maximum = max(head.next)
         if head.data > maximum:
-            maximum = head.data
-        return max(head.next)
+            return head.data
+        else:
+            return maximum
        
 
 def linkify(items: list[int]) -> Optional[Node]:
+    """Returns linked list with same values as list."""
     if len(items) == 0:
         return None
+    i: int = 0
+    new_node = Node(items)
+    node = Node(items[i], Node(items[i + 1], None))
+    return node
+
 
 
 def scale(head: Optional[Node], facotr: int) -> Optional[Node]: 
+    """Returns linked list with values multiplied by a factor."""
     if head is None:
         return None
     
