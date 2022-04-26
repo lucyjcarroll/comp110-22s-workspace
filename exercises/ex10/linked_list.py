@@ -73,17 +73,16 @@ def linkify(items: list[int]) -> Optional[Node]:
     if len(items) == 0:
         return None
     else: 
-        i: int = 0
-        n: Node = Node()
-        n.data = items[i]
-        n.next = linkify(items)
-        i = i + 1
-    return n
+        return Node(items[0], linkify(items[1:]))
 
 
-def scale(head: Optional[Node], facotr: int) -> Optional[Node]: 
+def scale(head: Optional[Node], factor: int) -> Optional[Node]: 
     """Returns linked list with values multiplied by a factor."""
     if head is None:
         return None
+    else: 
+        return Node(head.data * factor, scale(head.next, factor))
+
+    
     
     

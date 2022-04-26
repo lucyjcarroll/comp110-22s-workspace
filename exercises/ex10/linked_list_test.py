@@ -1,6 +1,6 @@
 """Tests for linked list utils."""
 
-from exercises.ex10.linked_list import Node, last, value_at, max, linkify, scale
+from exercises.ex10.linked_list import Node, last, value_at, max, linkify, scale, is_equal
 import pytest
 
 __author__ = "730320310"
@@ -59,7 +59,8 @@ def test_linkify_empty() -> None:
 def test_linkify_non_empty() -> None:
     """Linkify of a list should return Linked list of nodes with the same values."""
     list = [1, 2, 3]
-    assert linkify(list) == Node(1, Node(2, Node(3, None)))
+    a = Node(1, Node(2, Node(3, None)))
+    assert is_equal(linkify(list), a) 
 
 
 def test_scale_empty() -> None:
@@ -69,6 +70,7 @@ def test_scale_empty() -> None:
 
 
 def test_scale_use() -> None:
-    """Scale of linked list should return linkedd list with values muliplied by factor."""
+    """Scale of linked list should return linked list with values muliplied by factor."""
     linked_list = Node(1, Node(2, Node(3, None)))
-    assert scale(linked_list, 2) == Node(2, Node(4, Node(6, None)))
+    new_ll = Node(2, Node(4, Node(6, None)))
+    assert is_equal(scale(linked_list, 2), new_ll)
